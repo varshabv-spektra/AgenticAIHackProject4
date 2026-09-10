@@ -1,0 +1,88 @@
+{
+  "if": {
+    "anyOf": [
+      {
+        "not": {
+          "anyOf": [
+            {
+              "field": "type",
+              "like": "Microsoft.CognitiveServices/accounts/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.CognitiveServices/accounts/projects/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Search/searchServices/*"
+            },
+            {
+              "field": "type",
+              "like": "Microsoft.Storage/storageAccounts/*"
+            },
+            {
+              "field": "type",
+              "in": [
+                "Microsoft.CognitiveServices/accounts",
+                "Microsoft.CognitiveServices/accounts/projects",
+                "Microsoft.Search/searchServices",
+                "Microsoft.Storage/storageAccounts"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.CognitiveServices/accounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.CognitiveServices/accounts/sku.name",
+              "in": [
+                "S0"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Search/searchServices"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Search/searchServices/sku.name",
+              "in": [
+                "basic"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Storage/storageAccounts/sku.name",
+              "in": [
+                "Standard_LRS"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}

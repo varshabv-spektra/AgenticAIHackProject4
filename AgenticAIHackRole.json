@@ -1,0 +1,38 @@
+{
+  "Name": "Spektra Custom RBAC",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Spektra Training Custom Role - Contoso Foundry Demo (AI Foundry + AI Search + Storage) with Lab VM.",
+  "Actions": [
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Resources/deployments/*",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.CognitiveServices/register/action",
+    "Microsoft.Compute/register/action",
+    "Microsoft.Network/register/action",
+    "Microsoft.Search/register/action",
+    "Microsoft.Storage/register/action",
+    "microsoft.alertsmanagement/smartDetectorAlertRules/*",
+    "Microsoft.CognitiveServices/accounts/*",
+    "Microsoft.Compute/disks/*",
+    "Microsoft.Compute/virtualMachines/*",
+    "microsoft.insights/actiongroups/*",
+    "Microsoft.Insights/components/*",
+    "Microsoft.Network/networkInterfaces/*",
+    "Microsoft.Network/networkSecurityGroups/*",
+    "Microsoft.Network/publicIPAddresses/*",
+    "Microsoft.Network/virtualNetworks/*",
+    "Microsoft.OperationalInsights/workspaces/*",
+    "Microsoft.Search/searchServices/*",
+    "Microsoft.Storage/storageAccounts/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [],
+  "DataActions": [
+    "Microsoft.CognitiveServices/accounts/OpenAI/*",
+    "Microsoft.Search/searchServices/indexes/*",
+    "Microsoft.Storage/storageAccounts/blobServices/containers/*"
+  ],
+  "NotDataActions": []
+}
